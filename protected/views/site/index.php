@@ -1,20 +1,38 @@
 <?php
 /* @var $this SiteController */
+/* @var $news News[] */
+/* @var $about Page */
 
-$this->pageTitle=Yii::app()->name;
 ?>
+<div class="span12">
 
-<h1>Welcome to <i><?php echo CHtml::encode(Yii::app()->name); ?></i></h1>
+    <div class="row">
+        <div class="span6">
+            <h4 class="colorAccent">О ШКОЛЕ</h4>
+            <?php
 
-<p>Congratulations! You have successfully created your Yii application.</p>
+            echo CHtml::decode($about->body);
+            ?>
 
-<p>You may change the content of this page by modifying the following two files:</p>
-<ul>
-	<li>View file: <code><?php echo __FILE__; ?></code></li>
-	<li>Layout file: <code><?php echo $this->getLayoutFile('main'); ?></code></li>
-</ul>
+        </div>
+        <div class="span6">
+            <h4 class="colorAccent">НОВОСТИ</h4>
+            <?php
+            foreach ($news as $singleNews) {
+                $this->renderPartial("/news/_view", array('data' => $singleNews));
+            }
+            ?>
 
-<p>For more details on how to further develop this application, please read
-the <a href="http://www.yiiframework.com/doc/">documentation</a>.
-Feel free to ask in the <a href="http://www.yiiframework.com/forum/">forum</a>,
-should you have any questions.</p>
+            <?php echo CHtml::link('ВСЕ НОВОСТИ', array("/news/index"), array('class' => 'allNews'));?>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="span12">
+            <div class="gallery">
+                <h4 class="colorAccent">ГАЛЛЕРЕЯ</h4>
+            </div>
+        </div>
+    </div>
+</div>
+

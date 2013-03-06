@@ -1,0 +1,39 @@
+@background-image: url('../img/background.png');
+
+body {
+    background-color: #efefef;
+}
+
+
+#breadcrumbs {
+    padding: 4px 0;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 16px;
+}
+
+#content {
+    margin-bottom: 8px;
+}
+
+#footer {
+    color: #cccccc;
+    background-color: #3b3c3b;
+    text-align: center;
+}
+
+.errorMessage, span.required {
+    color: red;
+}
+
+.notebook {
+    margin-bottom: 24px;
+}
+
+a.asc:after {
+    content: "▲";
+}
+
+a.desc:after {
+    content: "▼";
+}
