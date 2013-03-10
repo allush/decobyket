@@ -7,6 +7,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="language" content="ru"/>
 
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+
     <title><?php echo CHtml::encode($this->pageTitle); ?></title>
 
     <?php
@@ -36,9 +38,10 @@
                     <?php $this->widget('zii.widgets.CMenu', array(
                     'items' => array(
                         array('label' => 'Страницы', 'url' => array('/page/index')),
-                        array('label' => 'Новости', 'url' => array('/newsb/index')),
-                        array('label' => 'Курсы', 'url' => array('/courseb/index')),
-                        array('label' => 'Галерея', 'url' => array('/productb/index')),
+                        array('label' => 'Новости', 'url' => array('/news/index')),
+                        array('label' => 'Курсы', 'url' => array('/course/index')),
+                        array('label' => 'Галерея', 'url' => array('/galleryItem/index')),
+                        array('label' => 'Магазин(Не активен)', 'url' => '#'),
                         array('label' => 'Пользователи', 'url' => array('/user/index')),
                         array('label' => '(' . Yii::app()->user->getState('login') . ') Выйти', 'url' => array('/site/logout'), 'visible' => !Yii::app()->user->isGuest),
                     ),
@@ -57,7 +60,7 @@
                     <?php
                     $this->widget('zii.widgets.CMenu', array(
                             'items' => $this->menu,
-                            'htmlOptions' => array('class' => 'btn-group', 'style'=>'margin-left: 0;'),
+                            'htmlOptions' => array('style' => 'margin-left: 0;'),
                             'itemCssClass' => 'btn',
                         )
                     );
@@ -75,7 +78,6 @@
     </div>
 </div>
 
-<script src="http://code.jquery.com/jquery-latest.js"></script>
 
 </body>
 

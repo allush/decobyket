@@ -37,3 +37,12 @@ a.asc:after {
 a.desc:after {
     content: "▼";
 }
+.galleryItem{
+    text-align: center;
+}
+.galleryItemImg{
+    height: 100px;
+}
+.galleryItemImg img{
+    max-height: 100px;
+}

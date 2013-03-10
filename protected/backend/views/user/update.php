@@ -2,20 +2,25 @@
 /* @var $this UserController */
 /* @var $model User */
 
-$this->breadcrumbs=array(
-	'Users'=>array('index'),
-	$model->name=>array('view','id'=>$model->id_user),
-	'Update',
-);
-
 $this->menu=array(
-	array('label'=>'List User', 'url'=>array('index')),
-	array('label'=>'Create User', 'url'=>array('create')),
-	array('label'=>'View User', 'url'=>array('view', 'id'=>$model->id_user)),
-	array('label'=>'Manage User', 'url'=>array('admin')),
+	array('label'=>'Назад', 'url'=>array('index')),
+    array(
+        'label' => 'Удалить',
+        'url' => '',
+        'linkOptions' => array(
+            'confirm' => 'Вы уверены?',
+            'submit' => array('delete', 'id' => $model->id_user),
+            'params' => array(
+                'YII_CSRF_TOKEN' => Yii::app()->request->csrfToken
+            ),
+        ),
+        'itemOptions' => array(
+            'class' => 'btn-danger pull-right',
+        ),
+    ),
 );
 ?>
 
-<h1>Update User <?php echo $model->id_user; ?></h1>
+<h4>Редактирование пользователя "<?php echo $model->name.' '.$model->surname; ?>"</h4>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

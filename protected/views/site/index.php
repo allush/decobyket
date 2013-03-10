@@ -2,6 +2,7 @@
 /* @var $this SiteController */
 /* @var $news News[] */
 /* @var $about Page */
+/* @var $galleryItems GalleryItem[] */
 
 ?>
 <div class="span12">
@@ -31,6 +32,14 @@
         <div class="span12">
             <div class="gallery">
                 <h4 class="colorAccent">ГАЛЛЕРЕЯ</h4>
+                <ul class="thumbnails">
+                    <?php
+                    foreach ($galleryItems as $singleGalleryItem) {
+                        $this->renderPartial("/galleryItem/_view", array('data' => $singleGalleryItem));
+                    }
+                    ?>
+                </ul>
+                <?php echo CHtml::link('ПЕРЕЙТИ В ГАЛЛЕРЕЮ', array('/galleryItem/index'), array('class' => 'pull-right allNews'))?>
             </div>
         </div>
     </div>

@@ -4,5 +4,6 @@
 ?>
 
 <div>
-    <?php echo ($index+1) . ". " . CHtml::link($data->title, array('update', 'id' => $data->id_page)); ?>
+    <small><?php echo ($index + 1) . ". "; ?></small>
+    <?php echo CHtml::link($data->title, array('update', 'id' => $data->id_page)); ?>
 </div>

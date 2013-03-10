@@ -11,36 +11,33 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
-
-	<?php echo $form->errorSummary($model); ?>
-
-	<div class="row">
+	<div>
 		<?php echo $form->labelEx($model,'name'); ?>
 		<?php echo $form->textField($model,'name',array('size'=>60,'maxlength'=>255)); ?>
 		<?php echo $form->error($model,'name'); ?>
 	</div>
 
-	<div class="row">
+	<div>
 		<?php echo $form->labelEx($model,'surname'); ?>
 		<?php echo $form->textField($model,'surname',array('size'=>60,'maxlength'=>255)); ?>
 		<?php echo $form->error($model,'surname'); ?>
 	</div>
 
-	<div class="row">
+    <div>
+        <?php echo $form->labelEx($model,'email'); ?>
+        <?php echo $form->textField($model,'email',array('size'=>60,'maxlength'=>255)); ?>
+        <?php echo $form->error($model,'email'); ?>
+    </div>
+
+	<div>
 		<?php echo $form->labelEx($model,'password'); ?>
 		<?php echo $form->passwordField($model,'password',array('size'=>60,'maxlength'=>255)); ?>
 		<?php echo $form->error($model,'password'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'email'); ?>
-		<?php echo $form->textField($model,'email',array('size'=>60,'maxlength'=>255)); ?>
-		<?php echo $form->error($model,'email'); ?>
-	</div>
 
-	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+	<div>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Создать' : 'Сохранить', array('class' => 'btn span2')); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

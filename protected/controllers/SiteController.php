@@ -16,6 +16,11 @@ class SiteController extends Controller
             'order' => 'id_news desc'
         ));
 
+        $galleryItems = GalleryItem::model()->findAll(array(
+            'limit' => 5,
+            'order' => 'id_gallery_item desc'
+        ));
+
         $about = Page::model()->findByAttributes(array(
             'alias' => 'about',
         ));
@@ -23,6 +28,7 @@ class SiteController extends Controller
         $this->render('index', array(
             'news' => $news,
             'about' => $about,
+            'galleryItems' => $galleryItems,
         ));
     }
 
@@ -39,23 +45,13 @@ class SiteController extends Controller
         }
     }
 
-    /**
-     * Displays the contact page
-     */
-    public function actionContacts()
-    {
-        $contacts = Page::model()->findByAttributes(array(
-            'alias' => 'contacts',
-        ));
-        $this->render('page', array('model' => $contacts));
-    }
 
-    public function actionMaterials()
+    public function actionPage($alias)
     {
-        $contacts = Page::model()->findByAttributes(array(
-            'alias' => 'materials',
+        $page = Page::model()->findByAttributes(array(
+            'alias' => $alias,
         ));
-        $this->render('page', array('model' => $contacts));
+        $this->render('page', array('model' => $page));
     }
 
     /**
