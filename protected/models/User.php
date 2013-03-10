@@ -98,6 +98,11 @@ class User extends CActiveRecord
 		));
 	}
 
+    public function beforeSave(){
+        $this->password = $this->hashPassword($this->password);
+        return parent::beforeSave();
+    }
+
     /**
      * Проверяет пароль пользователя на соответствие введенному в поле
      * @param $password

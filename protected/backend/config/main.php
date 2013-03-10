@@ -5,6 +5,7 @@ Yii::setPathOfAlias('backend', $backend);
 
 return array(
     'basePath' => $frontend,
+    'name'=>'Админка. Школа лепки "Букет"',
 
     'controllerPath' => $backend . '/controllers',
     'viewPath' => $backend . '/views',

@@ -10,6 +10,7 @@
         'emptyText' => '',
         'itemsTagName' => 'ul',
         'itemsCssClass' => 'inline',
+        'summaryText' => '',
     )); ?>
     </div>
 </div>
@@ -21,4 +22,14 @@
     'itemsCssClass' => 'thumbnails',
     'emptyText' => '',
     'summaryText' => '',
+    'pager' => array(
+        'firstPageLabel'=>'<<',
+        'prevPageLabel'=>'<',
+        'nextPageLabel'=>'>',
+        'lastPageLabel'=>'>>',
+        'maxButtonCount'=>'10',
+        'header'=>'',
+        'cssFile' => '',
+        'selectedPageCssClass' => 'active',
+    ),
 )); ?>

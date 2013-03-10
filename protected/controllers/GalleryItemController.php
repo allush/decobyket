@@ -13,6 +13,9 @@ class GalleryItemController extends Controller
             'criteria' => array(
                 'condition' => isset($catalog) ? "id_gallery_catalog=$catalog" : '',
             ),
+            'pagination' => array(
+                'pageSize' => 5,
+            ),
         ));
 
         $this->render('index', array(
