@@ -14,7 +14,7 @@ class GalleryItemController extends Controller
                 'condition' => isset($catalog) ? "id_gallery_catalog=$catalog" : '',
             ),
             'pagination' => array(
-                'pageSize' => 5,
+                'pageSize' => 20,
             ),
         ));
 
