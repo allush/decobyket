@@ -27,7 +27,8 @@
     <?php echo $form->labelEx($model, 'body'); ?>
     <?php echo $form->textArea($model, 'body') ?>
     <script>
-        CKEDITOR.replace('News[body]');
+        var editor = CKEDITOR.replace('News[body]');
+        CKFinder.setupCKEditor( editor, '/ckfinder/' );
     </script>
     <?php echo $form->error($model, 'body'); ?>
 </div>

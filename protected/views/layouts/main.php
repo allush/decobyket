@@ -32,7 +32,7 @@
 <div class="container" id="page">
 
     <div class="row" id="header">
-        <div class="span4" id="logo"><?php echo CHtml::link(CHtml::image(Yii::app()->baseUrl . '/images/logoDark.png'), array('/')); ?></div>
+        <div class="span4" id="logo"><?php echo CHtml::link(CHtml::image(Yii::app()->baseUrl . '/images/logoDark.png'), array('/site/index')); ?></div>
         <div class="span8">
             <div class="topContacts">
                 Санкт-Петербург, Ул.Бухарестская д.90<br>

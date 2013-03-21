@@ -23,7 +23,8 @@
         <?php echo $form->labelEx($model, 'content'); ?>
         <?php echo $form->textArea($model, 'content', array('rows' => 6, 'cols' => 50)); ?>
         <script>
-            CKEDITOR.replace('Course[content]');
+            var editor = CKEDITOR.replace('Course[content]');
+            CKFinder.setupCKEditor( editor, '/ckfinder/' );
         </script>
         <?php echo $form->error($model, 'content'); ?>
     </div>

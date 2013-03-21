@@ -26,7 +26,8 @@
 	</div>
 
     <script>
-        CKEDITOR.replace('Page[body]');
+        var editor = CKEDITOR.replace('Page[body]');
+        CKFinder.setupCKEditor( editor, '/ckfinder/' );
     </script>
 
     <br>

@@ -96,10 +96,15 @@ a.desc:after {
 
 @colorAccent: #ee356a;
 .news {
+  clear: both;
   padding-right: 24px;
+  padding-left: 4px;
   margin-bottom: 8px;
   word-wrap: break-all;
 
+  &:hover{
+    background-color: #ffffff;
+  }
   .date {
     color: @colorAccent;
     font-weight: bold;
@@ -111,6 +116,7 @@ a.desc:after {
 
   .more {
     text-align: right;
+    clear: both;
     a {
       color: @colorAccent;
       text-decoration: underline;

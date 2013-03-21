@@ -25,6 +25,7 @@
     );
     ?>
     <script type="text/javascript" src="<?php echo Yii::app()->baseUrl . '/ckeditor/ckeditor.js'; ?>"></script>
+    <script type="text/javascript" src="<?php echo Yii::app()->baseUrl . '/ckfinder/ckfinder.js'; ?>"></script>
 </head>
 
 <body>
