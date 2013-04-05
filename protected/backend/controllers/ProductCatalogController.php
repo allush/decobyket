@@ -21,17 +21,8 @@ class ProductCatalogController extends Controller
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
-				'users'=>array('*'),
-			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+			array('allow',
 				'users'=>array('@'),
-			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
-				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
@@ -65,7 +56,7 @@ class ProductCatalogController extends Controller
 		{
 			$model->attributes=$_POST['ProductCatalog'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id_product_catalog));
+				$this->redirect(array('index'));
 		}
 
 		$this->render('create',array(
@@ -89,7 +80,7 @@ class ProductCatalogController extends Controller
 		{
 			$model->attributes=$_POST['ProductCatalog'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id_product_catalog));
+				$this->redirect(array('index'));
 		}
 
 		$this->render('update',array(
@@ -108,7 +99,7 @@ class ProductCatalogController extends Controller
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
 	}
 
 	/**
@@ -119,21 +110,6 @@ class ProductCatalogController extends Controller
 		$dataProvider=new CActiveDataProvider('ProductCatalog');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
-		));
-	}
-
-	/**
-	 * Manages all models.
-	 */
-	public function actionAdmin()
-	{
-		$model=new ProductCatalog('search');
-		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['ProductCatalog']))
-			$model->attributes=$_GET['ProductCatalog'];
-
-		$this->render('admin',array(
-			'model'=>$model,
 		));
 	}
 

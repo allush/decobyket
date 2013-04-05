@@ -3,16 +3,12 @@
 /* @var $model Product */
 
 $this->breadcrumbs=array(
-	'Products'=>array('index'),
-	'Create',
+	'Магазин'=>array('index'),
+	'Создание товара',
 );
 
 $this->menu=array(
-	array('label'=>'List Product', 'url'=>array('index')),
-	array('label'=>'Manage Product', 'url'=>array('admin')),
+	array('label'=>'Назад', 'url'=>array('index')),
 );
-?>
 
-<h1>Create Product</h1>
-
-<?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
+echo $this->renderPartial('_form', array('model'=>$model)); ?>

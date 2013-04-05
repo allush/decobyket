@@ -37,9 +37,10 @@ class ProductCatalog extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, description', 'required'),
+			array('name', 'required'),
 			array('parent', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>255),
+            array('description', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id_product_catalog, name, description, parent', 'safe', 'on'=>'search'),
@@ -64,9 +65,9 @@ class ProductCatalog extends CActiveRecord
 	{
 		return array(
 			'id_product_catalog' => 'Id Product Catalog',
-			'name' => 'Name',
-			'description' => 'Description',
-			'parent' => 'Parent',
+			'name' => 'Название',
+			'description' => 'Описание',
+			'parent' => 'Родитель',
 		);
 	}
 

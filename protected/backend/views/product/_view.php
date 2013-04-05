@@ -1,43 +1,51 @@
 <?php
 /* @var $this ProductController */
 /* @var $data Product */
+
+if ($index == 0) {
+    ?>
+    <tr>
+        <th>Изображение</th>
+        <th>Название</th>
+        <th>Стоимость</th>
+        <th>Описание</th>
+        <th>В наличии</th>
+        <th>Показан</th>
+    </tr>
+<?php
+}
 ?>
 
-<div class="view">
+<tr>
+    <td class="span2">
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id_article')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id_article), array('view', 'id'=>$data->id_article)); ?>
-	<br />
+        <?php
+        $mainPicture = $data->mainPicture();
+        if (strlen($mainPicture) > 0)
+            echo CHtml::image($data->mainPicture(), '', array('style' => 'width: 100px;'));
+        else
+            echo CHtml::link('<small>Добавить фото</small>', array('view', 'id' => $data->id_product))
+        ?>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('name')); ?>:</b>
-	<?php echo CHtml::encode($data->name); ?>
-	<br />
+    </td>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('date_create')); ?>:</b>
-	<?php echo CHtml::encode($data->date_create); ?>
-	<br />
+    <td class="span2">
+        <?php echo CHtml::link($data->name, array('view', 'id' => $data->id_product)); ?>
+    </td>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('cost')); ?>:</b>
-	<?php echo CHtml::encode($data->cost); ?>
-	<br />
+    <td class="span2">
+        <?php echo CHtml::encode($data->cost); ?>
+    </td>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('description')); ?>:</b>
-	<?php echo CHtml::encode($data->description); ?>
-	<br />
+    <td class="span2">
+        <?php echo CHtml::decode($data->description); ?>
+    </td>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id_product_catalog')); ?>:</b>
-	<?php echo CHtml::encode($data->id_product_catalog); ?>
-	<br />
+    <td class="span2">
+        <?php echo CHtml::encode($data->existence); ?>
+    </td>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('existence')); ?>:</b>
-	<?php echo CHtml::encode($data->existence); ?>
-	<br />
-
-	<?php /*
-	<b><?php echo CHtml::encode($data->getAttributeLabel('visible')); ?>:</b>
-	<?php echo CHtml::encode($data->visible); ?>
-	<br />
-
-	*/ ?>
-
-</div>
+    <td class="span2">
+        <?php echo CHtml::encode($data->visible == 1 ? 'Да' : 'Нет'); ?>
+    </td>
+</tr>

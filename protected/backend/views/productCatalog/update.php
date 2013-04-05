@@ -2,20 +2,21 @@
 /* @var $this ProductCatalogController */
 /* @var $model ProductCatalog */
 
-$this->breadcrumbs=array(
-	'Product Catalogs'=>array('index'),
-	$model->name=>array('view','id'=>$model->id_product_catalog),
-	'Update',
-);
-
 $this->menu=array(
-	array('label'=>'List ProductCatalog', 'url'=>array('index')),
-	array('label'=>'Create ProductCatalog', 'url'=>array('create')),
-	array('label'=>'View ProductCatalog', 'url'=>array('view', 'id'=>$model->id_product_catalog)),
-	array('label'=>'Manage ProductCatalog', 'url'=>array('admin')),
+    array('label'=>'Назад', 'url'=>array('index')),
+    array(
+        'label' => 'Удалить',
+        'url' => '#',
+        'linkOptions' => array(
+            'submit' => array('delete', 'id' => $model->id_product_catalog),
+            'confirm' => 'Вы уверены?',
+            'params' => array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
+        ),
+        'itemOptions' => array('class' => 'pull-right btn-danger')
+    ),
 );
 ?>
 
-<h1>Update ProductCatalog <?php echo $model->id_product_catalog; ?></h1>
+<h4>Редактирование каталога магазина "<?php echo $model->name; ?>"</h4>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

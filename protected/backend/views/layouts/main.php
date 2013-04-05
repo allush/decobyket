@@ -42,7 +42,7 @@
                         array('label' => 'Новости', 'url' => array('/news/index')),
                         array('label' => 'Курсы', 'url' => array('/course/index')),
                         array('label' => 'Галерея', 'url' => array('/galleryItem/index')),
-                        array('label' => 'Магазин(Не активен)', 'url' => '#'),
+                        array('label' => 'Магазин', 'url' => array('/product/index')),
                         array('label' => 'Пользователи', 'url' => array('/user/index')),
                         array('label' => '(' . Yii::app()->user->getState('login') . ') Выйти', 'url' => array('/site/logout'), 'visible' => !Yii::app()->user->isGuest),
                     ),

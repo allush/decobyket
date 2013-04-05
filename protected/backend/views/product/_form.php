@@ -6,61 +6,53 @@
 
 <div class="form">
 
-<?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'product-form',
-	'enableAjaxValidation'=>false,
-)); ?>
+    <?php $form = $this->beginWidget('CActiveForm', array(
+        'id' => 'product-form',
+        'enableAjaxValidation' => false,
+    )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+    <div>
+        <?php echo $form->labelEx($model, 'name'); ?>
+        <?php echo $form->textField($model, 'name', array('size' => 60, 'maxlength' => 255, 'class' => 'span5')); ?>
+        <?php echo $form->error($model, 'name'); ?>
+    </div>
 
-	<?php echo $form->errorSummary($model); ?>
+    <div>
+        <?php echo $form->labelEx($model, 'description'); ?>
+        <?php echo $form->textArea($model, 'description', array('rows' => 6, 'cols' => 50, 'class' => 'span5')); ?>
+        <?php echo $form->error($model, 'description'); ?>
+    </div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'name'); ?>
-		<?php echo $form->textField($model,'name',array('size'=>60,'maxlength'=>255)); ?>
-		<?php echo $form->error($model,'name'); ?>
-	</div>
+    <div>
+        <?php echo $form->labelEx($model, 'id_product_catalog'); ?>
+        <?php echo $form->dropDownList($model, 'id_product_catalog', CHtml::listData(ProductCatalog::model()->findAll(array('order' => 'name asc')), 'id_product_catalog', 'name'), array('class' => 'span5')); ?>
+        <?php echo $form->error($model, 'id_product_catalog'); ?>
+    </div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'date_create'); ?>
-		<?php echo $form->textField($model,'date_create'); ?>
-		<?php echo $form->error($model,'date_create'); ?>
-	</div>
+    <div>
+        <?php echo $form->labelEx($model, 'cost'); ?>
+        <?php echo $form->numberField($model, 'cost', array('min' => 0, 'class' => 'span1')); ?>
+        <?php echo $form->error($model, 'cost'); ?>
+    </div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'cost'); ?>
-		<?php echo $form->textField($model,'cost'); ?>
-		<?php echo $form->error($model,'cost'); ?>
-	</div>
+    <div>
+        <?php echo $form->labelEx($model, 'existence'); ?>
+        <?php echo $form->numberField($model, 'existence', array('min' => 0, 'class' => 'span1')); ?>
+        <?php echo $form->error($model, 'existence'); ?>
+    </div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'description'); ?>
-		<?php echo $form->textArea($model,'description',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'description'); ?>
-	</div>
+    <div>
+        <?php echo $form->labelEx($model, 'visible'); ?>
+        <?php echo $form->checkBox($model, 'visible'); ?>
+        <?php echo $form->error($model, 'visible'); ?>
+    </div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'id_product_catalog'); ?>
-		<?php echo $form->textField($model,'id_product_catalog'); ?>
-		<?php echo $form->error($model,'id_product_catalog'); ?>
-	</div>
+    <br>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'existence'); ?>
-		<?php echo $form->textField($model,'existence'); ?>
-		<?php echo $form->error($model,'existence'); ?>
-	</div>
+    <div>
+        <?php echo CHtml::submitButton($model->isNewRecord ? 'Создать' : 'Сохранить', array('class' => 'btn')); ?>
+    </div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'visible'); ?>
-		<?php echo $form->textField($model,'visible'); ?>
-		<?php echo $form->error($model,'visible'); ?>
-	</div>
-
-	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
-	</div>
-
-<?php $this->endWidget(); ?>
+    <?php $this->endWidget(); ?>
 
 </div><!-- form -->

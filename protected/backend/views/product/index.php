@@ -1,20 +1,33 @@
 <?php
 /* @var $this ProductController */
 /* @var $dataProvider CActiveDataProvider */
+/* @var $productCatalogs CActiveDataProvider */
 
-$this->breadcrumbs=array(
-	'Products',
+$this->breadcrumbs = array(
+    'Магазин',
 );
 
-$this->menu=array(
-	array('label'=>'Create Product', 'url'=>array('create')),
-	array('label'=>'Manage Product', 'url'=>array('admin')),
+$this->menu = array(
+    array('label' => 'Добавить товар', 'url' => array('create')),
+    array('label' => 'Управление каталогами магазина', 'url' => array('/productCatalog/index')),
 );
-?>
 
-<h1>Products</h1>
+$this->widget('zii.widgets.CListView', array(
+    'dataProvider' => $productCatalogs,
+    'itemView' => 'catalog',
+    'emptyText' => '',
+    'summaryText' => '',
+));
 
-<?php $this->widget('zii.widgets.CListView', array(
-	'dataProvider'=>$dataProvider,
-	'itemView'=>'_view',
+$this->widget('zii.widgets.CListView', array(
+    'dataProvider' => $dataProvider,
+    'itemView' => '_view',
+    'itemsTagName' => 'table',
+    'itemsCssClass' => 'table table-bordered',
+    'sortableAttributes' => array(
+        'name',
+        'cost',
+        'existence',
+        'visible'
+    )
 )); ?>

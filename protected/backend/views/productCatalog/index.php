@@ -3,17 +3,15 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Product Catalogs',
+	'Каталоги магазина',
 );
 
 $this->menu=array(
-	array('label'=>'Create ProductCatalog', 'url'=>array('create')),
-	array('label'=>'Manage ProductCatalog', 'url'=>array('admin')),
+    array('label'=>'Магазин', 'url'=>array('/product/index')),
+    array('label'=>'Создать каталог', 'url'=>array('create')),
 );
 ?>
-
-<h1>Product Catalogs</h1>
-
+<h4>Каталоги магазина</h4>
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
 	'itemView'=>'_view',

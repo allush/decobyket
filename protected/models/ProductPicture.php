@@ -87,4 +87,14 @@ class ProductPicture extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+
+    protected function beforeDelete(){
+
+        $path = Yii::app()->basePath . '/../images/product/' . $this->picture_path;
+
+        if(file_exists($path) && is_file($path))
+            unlink($path);
+
+        return parent::beforeDelete();
+    }
 }
