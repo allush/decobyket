@@ -5,6 +5,7 @@
 
 $this->menu = array(
     array('label' => 'Список товаров', 'url' => array('index')),
+    array('label' => 'Редактировать', 'url' => array('update', 'id' => $model->id_product)),
     array(
         'label' => 'Удалить',
         'url' => '#',
